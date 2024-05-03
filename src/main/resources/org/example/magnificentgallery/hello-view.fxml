@@ -14,10 +14,8 @@
   </padding>
 
   <Label fx:id="welcomeText" text="merhaba dünya"/>
-  <ImageView>
-  <image>
-    <Image url="@Screenshot.png" />
-  </image>
+  <ImageView  fx:id="imageView">
+    <Image fx:id="image"  url="@Screenshot.png"/>
 </ImageView>
   <Button text="Change Painting" onAction="#onHelloButtonClick"/>
 </VBox>

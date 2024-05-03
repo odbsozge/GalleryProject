@@ -7,22 +7,41 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.List;
+
 public class HelloController {
     @FXML
     private Label welcomeText;
     @FXML
-    private Alert alert = new Alert(Alert.AlertType.ERROR);
- //   @FXML
-//    private Image image = new Image("Screenshot.png");
+    private Alert alert = new Alert(Alert.AlertType.INFORMATION);
     @FXML
-    ImageView img = new ImageView();
+    private Image image;
+    @FXML
+    private ImageView imageView;
+
+    private int currentIndex = 0;
+    private String[] urlList = {
+        "/Users/ozgeodabas/Documents/GitHub/GalleryProject/src/images/Screenshot2.png",
+                "/Users/ozgeodabas/Documents/GitHub/GalleryProject/src/images/Screenshot3.png"
+    };
 
 
-@FXML
+    @FXML
     protected void onHelloButtonClick() {
+        try {
+            imageView.setImage(new Image(new FileInputStream(urlList[currentIndex])));
+            currentIndex += 1;
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
 
-    //img.setImage(image);
-        alert.show();
-        welcomeText.setText("Welcome to JavaFX Application!");
+        if (welcomeText.getText().equals("merhaba dünya")) {
+            welcomeText.setText("hi");
+        } else {
+
+            welcomeText.setText("hello");
+        }
     }
 }
