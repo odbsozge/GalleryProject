@@ -2,7 +2,6 @@ package org.example.magnificentgallery.Entity;
 
 public class Cart {
     private Long id;
-
     private Long userId;
     private Long paintingId;
     private Long paintingPriceId;
