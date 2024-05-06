@@ -44,4 +44,19 @@ public class Node {
     public void deleteChildByPaintingId(int paintingId) {
         this.childList.removeIf(child -> child.getPaintingId() == paintingId);
     }
+
+    public ArrayList<Node> getAllChilds() {
+        ArrayList<Node> nodeList = new ArrayList<Node>();
+
+        nodeList.add(this);
+
+        if (this.getChildList()!= null && !this.getChildList().isEmpty()) {
+            for (Node child : this.getChildList()) {
+                // Çocuk düğümü nodeList'e ekleyin
+                nodeList.addAll(child.getAllChilds());
+            }
+        }
+
+        return nodeList;
+    }
 }

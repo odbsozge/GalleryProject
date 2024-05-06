@@ -1,5 +1,7 @@
 package org.example.magnificentgallery;
 
+import org.example.magnificentgallery.Entity.User;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.image.BufferedImage;
@@ -40,6 +42,30 @@ public class Service {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+    }
+
+    public User GetUser(String Email) {
+        // Veritabanına bağlan
+        String url = "jdbc:oracle:thin:@//193.255.85.26:1521/xe";
+        String username = "STU2202095";
+        String password = "STU2202095";
+
+        try{
+            Connection conn = DriverManager.getConnection(url, username, password);
+            String sql = "SELECT * FROM User where Email='ozge.odabas@bahcesehir.edu.tr'";
+            PreparedStatement statement = conn.prepareStatement(sql);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                return (User) resultSet.getObject(1); // İlk sütunun değerini al
+            } else {
+                return null; // Sonuç kümesi boşsa null döndür
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return null;
     }
 
 }
