@@ -1,27 +1,39 @@
 package org.example.magnificentgallery;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.HBox;
+import org.controlsfx.control.NotificationPane;
+import org.controlsfx.control.Notifications;
+import org.example.magnificentgallery.Entity.Cart;
+import org.example.magnificentgallery.Entity.User;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.util.List;
 
 public class HelloController {
+
+
+    @FXML
+    private Label label;
     @FXML
     private Label welcomeText;
     @FXML
+    private Label amount;
+
+    @FXML
     private Alert alert = new Alert(Alert.AlertType.ERROR);
+
     @FXML
     private Image image;
     @FXML
     private ImageView imageView;
+    @FXML
+    private TableView tableView;
     @FXML
     private TextField inputEmail;
     @FXML
@@ -32,6 +44,10 @@ public class HelloController {
     private Button nextButton;
     @FXML
     private Button backButton;
+    @FXML
+    private Button addCartButton;
+    @FXML
+    private HBox cartInfo;
 
     private int currentIndex = 0;
     private String[] urlList = {
@@ -43,36 +59,39 @@ public class HelloController {
     };
 
 
-
     Service service = new Service();
+
     @FXML
     protected void onClickLoginButton() {
-        if (service.GetUser(inputEmail.getText()) != null){
-        inputEmail.setVisible(false);
+        User user = service.GetUser(inputEmail.getText());
+        if (user != null) {
+            welcomeText.setText("Hello " + user.getFirstName() + " " + user.getLastName());
+            welcomeText.setVisible(true);
 
-        imageView.setVisible(true);
-        imageView.setFitWidth(400);
-        imageView.setFitHeight(300);
+            inputEmail.setVisible(false);
+            imageView.setVisible(true);
+            imageView.setFitWidth(350);
+            imageView.setFitHeight(250);
 
-        loginButton.setVisible(false);
-        cartButton.setVisible(true);
-        backButton.setVisible(true);
-        nextButton.setVisible(true);
+            loginButton.setVisible(false);
+            cartButton.setVisible(true);
+            backButton.setVisible(true);
+            nextButton.setVisible(true);
+            addCartButton.setVisible(true);
 
-        if (welcomeText.getText().equals("LOGIN")) {
-            welcomeText.setText("Paintings");
-        }
+            if (label.getText().equals("LOGIN")) {
+                label.setText("Paintings");
+            }
 
-        try {
-            imageView.setImage(new Image(new FileInputStream(urlList[0])));
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+            try {
+                imageView.setImage(new Image(new FileInputStream(urlList[0])));
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            }
 
-
-        }
-        else {
+        } else {
             alert.setContentText("Bu emaile ait kullanıcı bulunmamaktadır!");
+            alert.setAlertType(Alert.AlertType.ERROR);
             alert.show();
         }
     }
@@ -88,8 +107,6 @@ public class HelloController {
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
-
-
     }
 
     @FXML
@@ -104,18 +121,71 @@ public class HelloController {
             throw new RuntimeException(e);
         }
 
-        if (welcomeText.getText().equals("Login")) {
-            welcomeText.setText("Paintings");
+        if (label.getText().equals("Login")) {
+            label.setText("Paintings");
         }
     }
 
     @FXML
     protected void onClickCartButton() {
 
-        if (welcomeText.getText().equals("Cart")) {
-            welcomeText.setText("Paintings");
-        } else {
-            welcomeText.setText("Cart");
+        //sepeti kapatırken
+        if (label.getText().equals("Cart")) {
+            label.setText("Paintings");
+            cartButton.setText("Cart");
+            backButton.setVisible(true);
+            nextButton.setVisible(true);
+            addCartButton.setVisible(true);
+
+            imageView.setVisible(true);
+            imageView.setFitWidth(350);
+            imageView.setFitHeight(250);
+
+            tableView.setVisible(false);
+            tableView.prefWidth(0);
+            tableView.prefHeight(0);
+
+            cartInfo.setVisible(false);
+            cartInfo.prefWidth(0);
+            cartInfo.prefHeight(0);
+        }
+        //sepeti açarken
+        else {
+            label.setText("Cart");
+            cartButton.setText("Paintings");
+            backButton.setVisible(false);
+            nextButton.setVisible(false);
+            addCartButton.setVisible(false);
+
+            imageView.setVisible(false);
+            imageView.setFitWidth(0);
+            imageView.setFitHeight(0);
+
+            tableView.setVisible(true);
+            tableView.setMaxSize(600,450);
+            tableView.setPrefHeight(450);
+            var cart = service.GetCart();
+            ObservableList<Cart> observableCartList = FXCollections.observableArrayList(cart);
+            tableView.setItems(observableCartList);
+            tableView.refresh();
+
+            cartInfo.setVisible(true);
+            cartInfo.prefWidth(400);
+            cartInfo.prefHeight(50);
+            amount.setText("Amount : " + service.GetTotalPrice(1));
         }
     }
+
+    @FXML
+    public void addCartButtonClick() {
+        alert.setAlertType(Alert.AlertType.CONFIRMATION);
+        alert.setContentText("Ürün başarıyla sepete eklendi.");
+        alert.show();
+    }
+
+    @FXML
+    public void onClickBuyButton() {
+        alert.show();
+    }
+
 }

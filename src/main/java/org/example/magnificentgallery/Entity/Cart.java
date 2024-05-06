@@ -1,10 +1,10 @@
 package org.example.magnificentgallery.Entity;
 
 public class Cart {
-    private Long id;
-    private Long userId;
-    private Long paintingId;
-    private Long paintingPriceId;
+    private int id;
+    private int userId;
+    private int paintingId;
+    private int paintingPriceId;
     private double price;
     private String userFirstName;
     private String userLastName;
@@ -13,7 +13,7 @@ public class Cart {
     // Constructors
     public Cart() {}
 
-    public Cart(Long userId, Long paintingId, Long paintingPriceId, double price, String userFirstName, String userLastName, String url) {
+    public Cart(int i, int userId, int paintingId, int paintingPriceId, double price, String userFirstName, String userLastName, String url) {
         this.userId = userId;
         this.paintingId = paintingId;
         this.paintingPriceId = paintingPriceId;
@@ -24,35 +24,35 @@ public class Cart {
     }
 
     // Getters and Setters
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public Long getUserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 
-    public Long getPaintingId() {
+    public int getPaintingId() {
         return paintingId;
     }
 
-    public void setPaintingId(Long paintingId) {
+    public void setPaintingId(int paintingId) {
         this.paintingId = paintingId;
     }
 
-    public Long getPaintingPriceId() {
+    public int getPaintingPriceId() {
         return paintingPriceId;
     }
 
-    public void setPaintingPriceId(Long paintingPriceId) {
+    public void setPaintingPriceId(int paintingPriceId) {
         this.paintingPriceId = paintingPriceId;
     }
 

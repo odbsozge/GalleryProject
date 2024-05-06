@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="70e9c92d-7f24-4648-8004-3da85f9c1e1e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/images/Screenshot4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Screenshot5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/magnificentgallery/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/Entity/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/Entity/Cart.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/Node.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/magnificentgallery/Screenshot.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/Screenshot.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/magnificentgallery/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/magnificentgallery/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,12 +29,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "odbsozge"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;odbsozge&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -65,7 +64,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.HelloApplication.executor": "Run",
-    "Application.Main.executor": "Debug",
+    "Application.Main.executor": "Run",
     "Application.Unnamed.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
     "Repository.Attach.Annotations": "false",
@@ -93,9 +92,9 @@
       <recent name="$PROJECT_DIR$/src/main/resources/org/example/magnificentgallery" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/images" />
       <recent name="$PROJECT_DIR$/src/main/resources/org/example/magnificentgallery" />
       <recent name="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery" />
+      <recent name="$PROJECT_DIR$/src/images" />
       <recent name="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/Images" />
     </key>
   </component>
@@ -153,18 +152,22 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/Service.java</url>
-          <line>47</line>
+          <line>50</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/Service.java</url>
-          <line>54</line>
-          <option name="timeStamp" value="5" />
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/HelloController.java</url>
+          <line>166</line>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/Service.java</url>
-          <line>53</line>
-          <option name="timeStamp" value="6" />
+          <line>49</line>
+          <properties class="org.example.magnificentgallery.Service" method="GetUser">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
