@@ -9,3 +9,18 @@
     -fx-background-radius: 30;
     -fx-border-radius: 30;
 }
+
+.table-view {
+    -fx-progress-color: #66a9e5;
+    -fx-text-fill: black;
+    -fx-font-size: 20px;
+    -fx-pref-width: 200px;
+    -fx-border-color: black;
+    -fx-border-width: 5px;
+}
+
+.table-column {
+    -fx-text-fill: black;
+    -fx-font-size: 20px;
+
+}

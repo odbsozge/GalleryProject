@@ -7,8 +7,6 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
-import org.controlsfx.control.NotificationPane;
-import org.controlsfx.control.Notifications;
 import org.example.magnificentgallery.Entity.Cart;
 import org.example.magnificentgallery.Entity.User;
 
@@ -47,7 +45,13 @@ public class HelloController {
     @FXML
     private Button addCartButton;
     @FXML
+    private Button buyButton;
+    @FXML
     private HBox cartInfo;
+    @FXML
+    private HBox buttons;
+    @FXML
+    private HBox loginButtonBox;
 
     private int currentIndex = 0;
     private String[] urlList = {
@@ -65,15 +69,18 @@ public class HelloController {
     protected void onClickLoginButton() {
         User user = service.GetUser(inputEmail.getText());
         if (user != null) {
-            welcomeText.setText("Hello " + user.getFirstName() + " " + user.getLastName());
+            welcomeText.setText(STR."Hello \{user.getFirstName()} \{user.getLastName()}");
             welcomeText.setVisible(true);
 
             inputEmail.setVisible(false);
+            inputEmail.setMaxHeight(0);
+            inputEmail.setMaxWidth(0);
             imageView.setVisible(true);
             imageView.setFitWidth(350);
             imageView.setFitHeight(250);
 
             loginButton.setVisible(false);
+            loginButtonBox.setManaged(false);
             cartButton.setVisible(true);
             backButton.setVisible(true);
             nextButton.setVisible(true);
@@ -133,10 +140,13 @@ public class HelloController {
         if (label.getText().equals("Cart")) {
             label.setText("Paintings");
             cartButton.setText("Cart");
+            buyButton.setVisible(false);
             backButton.setVisible(true);
             nextButton.setVisible(true);
             addCartButton.setVisible(true);
-
+            buttons.setManaged(true);
+            addCartButton.setManaged(true);
+            imageView.setManaged(true);
             imageView.setVisible(true);
             imageView.setFitWidth(350);
             imageView.setFitHeight(250);
@@ -153,17 +163,22 @@ public class HelloController {
         else {
             label.setText("Cart");
             cartButton.setText("Paintings");
+            buyButton.setVisible(true);
             backButton.setVisible(false);
             nextButton.setVisible(false);
             addCartButton.setVisible(false);
+            buttons.setManaged(false);
 
+            addCartButton.setManaged(false);
+            imageView.setManaged(false);
             imageView.setVisible(false);
             imageView.setFitWidth(0);
             imageView.setFitHeight(0);
 
             tableView.setVisible(true);
-            tableView.setMaxSize(600,450);
-            tableView.setPrefHeight(450);
+            tableView.setMaxSize(600,250);
+            tableView.setPrefHeight(250);
+
             var cart = service.GetCart();
             ObservableList<Cart> observableCartList = FXCollections.observableArrayList(cart);
             tableView.setItems(observableCartList);
@@ -172,7 +187,7 @@ public class HelloController {
             cartInfo.setVisible(true);
             cartInfo.prefWidth(400);
             cartInfo.prefHeight(50);
-            amount.setText("Amount : " + service.GetTotalPrice(1));
+            amount.setText(STR."Amount : \{service.GetTotalPrice(1)}");
         }
     }
 

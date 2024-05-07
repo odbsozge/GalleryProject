@@ -15,53 +15,58 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+<?import javafx.scene.layout.Pane?>
+<VBox alignment="TOP_CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="org.example.magnificentgallery.HelloController" stylesheets="@style.css">
 
-  <HBox style="-fx-padding: 0 50 0 50">
-    <Label fx:id="welcomeText" visible="false" style="-fx-font-size: 30px; -fx-font-family: 'Arial Rounded MT Bold'; "/>
-    <Region HBox.hgrow="ALWAYS"/>
-    <Button fx:id="cartButton" text="Cart" onAction="#onClickCartButton" visible="false" styleClass="button"/>
-  </HBox>
+    <HBox fx:id="imageButtons" style="-fx-padding: 50 50 0 50">
+        <Label fx:id="welcomeText" visible="false"
+               style="-fx-font-size: 30px; -fx-font-family: 'Arial Rounded MT Bold'; "/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button fx:id="cartButton" text="Cart" onAction="#onClickCartButton" visible="false" styleClass="button"/>
+    </HBox>
 
-    <Label fx:id="label" text="LOGIN" style="-fx-font-size: 45px; -fx-font-family: 'Arial Rounded MT Bold'; -fx-alignment: center"/>
+    <Label fx:id="label" text="LOGIN"
+           style="-fx-font-size: 45px; -fx-font-family: 'Arial Rounded MT Bold'; -fx-alignment: center"/>
+    <TextField fx:id="inputEmail" promptText="Email" prefHeight="50" maxWidth="500"
+               style=" -fx-tile-alignment: center;"/>
 
+    <HBox fx:id="loginButtonBox" style="-fx-padding: 50 0 0 0" alignment="CENTER">
+        <Button fx:id="loginButton" text="Login" onAction="#onClickLoginButton" styleClass="button" />
+    </HBox>
 
-  <TextField fx:id="inputEmail" promptText="Email" prefHeight="50" maxWidth="500" style=" -fx-tile-alignment: center"/>
+      <ImageView fx:id="imageView" fitWidth="0" fitHeight="0" visible="false">
+        <Image fx:id="image" url="@../../../../../images/Screenshot.png"/>
+      </ImageView>
 
-  <ImageView  fx:id="imageView" fitWidth="0" fitHeight="0" visible="false">
-    <Image fx:id="image"  url="@../../../../../images/Screenshot.png" />
-  </ImageView>
+      <HBox fx:id="buttons" spacing="75" style="-fx-padding: 50 0 0 0" alignment="CENTER">
+        <Button fx:id="backButton" text="Back" onAction="#goBackButtonClick" visible="false" styleClass="button"/>
 
-  <TableView fx:id="tableView" visible="false" prefWidth="0" prefHeight="0">
-    <columns>
-      <TableColumn text="id">
-        <cellValueFactory>
-          <PropertyValueFactory property="property1" />
-        </cellValueFactory>
-      </TableColumn>
-      <TableColumn text="Price">
-        <cellValueFactory>
-          <PropertyValueFactory property="property2" />
-        </cellValueFactory>
-      </TableColumn>
-    </columns>
-  </TableView>
+        <Button fx:id="nextButton" text="Next" onAction="#goNextButtonClick" visible="false" styleClass="button"/>
+      </HBox>
 
-  <HBox fx:id="cartInfo" spacing="75"  style="-fx-padding: 0 50 0 50" visible="false" prefHeight="0" prefWidth="0">
-    <Label fx:id="amount" style="-fx-font-size: 30px; -fx-font-family: 'Arial Rounded MT Bold'; "/>
-    <Region HBox.hgrow="ALWAYS"/>
-    <Button fx:id="buyButton" text="Buy" onAction="#onClickBuyButton" styleClass="button"/>
-  </HBox>
+      <Button fx:id="addCartButton" text="Add To Cart" onAction="#addCartButtonClick" visible="false"
+              styleClass="button"/>
 
+    <TableView fx:id="tableView" visible="false" maxWidth="0" maxHeight="0">
+        <columns>
+            <TableColumn text="id">
+                <cellValueFactory>
+                    <PropertyValueFactory property="PaintingId"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Price">
+                <cellValueFactory>
+                    <PropertyValueFactory property="Price"/>
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
 
-  <Button fx:id="loginButton" text="Login" onAction="#onClickLoginButton" styleClass="button" />
+    <HBox fx:id="cartInfo" spacing="75" style="-fx-padding: 0 50 0 50" alignment="CENTER">
+        <Label fx:id="amount" style="-fx-font-size: 30px; -fx-font-family: 'Arial Rounded MT Bold'; "/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button fx:id="buyButton" text="Buy" onAction="#onClickBuyButton" visible="false" styleClass="button"/>
+    </HBox>
 
-  <HBox spacing="75" alignment="TOP_CENTER">
-    <Button fx:id="backButton" text="Back" onAction="#goBackButtonClick" visible="false"  styleClass="button"/>
-
-    <Button fx:id="nextButton" text="Next" onAction="#goNextButtonClick" visible="false"  styleClass="button"/>
-  </HBox>
-
-  <Button fx:id="addCartButton" text="Add To Cart" onAction="#addCartButtonClick" visible="false"  styleClass="button"/>
 </VBox>
