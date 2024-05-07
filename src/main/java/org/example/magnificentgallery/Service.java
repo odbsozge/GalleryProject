@@ -8,42 +8,36 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class Service {
     public void displayImagesFromDatabase() {
-        // Veritabanına bağlan
-        String url = "jdbc:mysql://localhost:3306/art_gallery";
-        String username = "your_username";
-        String password = "your_password";
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
 
-        try (Connection conn = DriverManager.getConnection(url, username, password)) {
-            String sql = "SELECT image FROM artworks";
-            PreparedStatement statement = conn.prepareStatement(sql);
-            ResultSet resultSet = statement.executeQuery();
+            Connection dbConnection = DriverManager.getConnection( "jdbc:oracle:thin:@193.255.85.26:1521/orcl", "STU2202095", "STU2202095");
+            Statement statement = dbConnection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select * from [User]");
+             while(resultSet.next())
+            {
+                User user = new User(
+                        resultSet.getInt("id"),
+                        resultSet.getString("firstName"),
 
-            JFrame frame = new JFrame("Artworks");
-            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            JPanel panel = new JPanel();
+                        resultSet.getString("lastName"),
+                        resultSet.getString("phoneNumber"),
+                        resultSet.getDouble("loan"),
 
-            while (resultSet.next()) {
-                byte[] imageData = resultSet.getBytes("image");
-                BufferedImage bufferedImage = ImageIO.read(new ByteArrayInputStream(imageData));
-                //mage image = SwingFXUtils.toFXImage(bufferedImage, null);
-                //ImageView imageView = new ImageView(image);
-                //panel.add(new JLabel(new ImageIcon(image)));
+                        resultSet.getString("address"),
+                        resultSet.getString("email")
+                );
             }
-
-            frame.add(panel);
-            frame.pack();
-            frame.setVisible(true);
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
+            dbConnection.close();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
