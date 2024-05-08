@@ -5,9 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="70e9c92d-7f24-4648-8004-3da85f9c1e1e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/images/Guernica.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/monalisa.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/sonakşamyemeği.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/yıldızlıgece.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/çığlık.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/öpücük.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/magnificentgallery/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/magnificentgallery/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,9 +96,9 @@
       <recent name="$PROJECT_DIR$/src/main/resources/org/example/magnificentgallery" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/images" />
       <recent name="$PROJECT_DIR$/src/main/resources/org/example/magnificentgallery" />
       <recent name="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery" />
-      <recent name="$PROJECT_DIR$/src/images" />
       <recent name="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/Images" />
     </key>
   </component>
@@ -164,5 +171,10 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="ex" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

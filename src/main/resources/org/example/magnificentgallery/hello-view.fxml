@@ -39,14 +39,15 @@
         <Image fx:id="image" url="@../../../../../images/Screenshot.png"/>
       </ImageView>
 
-      <HBox fx:id="buttons" spacing="75" style="-fx-padding: 50 0 0 0" alignment="CENTER">
+      <HBox fx:id="buttons" spacing="75" style="-fx-padding: 30 0 0 0" alignment="CENTER">
         <Button fx:id="backButton" text="Back" onAction="#goBackButtonClick" visible="false" styleClass="button"/>
 
         <Button fx:id="nextButton" text="Next" onAction="#goNextButtonClick" visible="false" styleClass="button"/>
       </HBox>
 
-      <Button fx:id="addCartButton" text="Add To Cart" onAction="#addCartButtonClick" visible="false"
-              styleClass="button"/>
+    <Button fx:id="infoButton" text="Information" onAction="#infoButtonClick" visible="false" styleClass="button"/>
+
+    <Button fx:id="addCartButton" text="Add To Cart" onAction="#addCartButtonClick" visible="false" styleClass="button"/>
 
     <TableView fx:id="tableView" visible="false" maxWidth="0" maxHeight="0">
         <columns>

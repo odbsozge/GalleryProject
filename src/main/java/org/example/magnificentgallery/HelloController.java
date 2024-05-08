@@ -4,12 +4,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import org.example.magnificentgallery.Entity.Cart;
 import org.example.magnificentgallery.Entity.User;
 
+import java.awt.*;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
@@ -25,6 +29,9 @@ public class HelloController {
 
     @FXML
     private Alert alert = new Alert(Alert.AlertType.ERROR);
+
+    @FXML
+    private Alert info = new Alert(Alert.AlertType.INFORMATION);
 
     @FXML
     private Image image;
@@ -43,6 +50,8 @@ public class HelloController {
     @FXML
     private Button backButton;
     @FXML
+    private Button infoButton;
+    @FXML
     private Button addCartButton;
     @FXML
     private Button buyButton;
@@ -55,13 +64,13 @@ public class HelloController {
 
     private int currentIndex = 0;
     private String[] urlList = {
-            "/Users/ozgeodabas/Documents/GitHub/GalleryProject/src/images/Screenshot.png",
-            "/Users/ozgeodabas/Documents/GitHub/GalleryProject/src/images/Screenshot2.png",
-            "/Users/ozgeodabas/Documents/GitHub/GalleryProject/src/images/Screenshot3.png",
-            "/Users/ozgeodabas/Documents/GitHub/GalleryProject/src/images/Screenshot4.png",
-            "/Users/ozgeodabas/Documents/GitHub/GalleryProject/src/images/Screenshot5.png"
+            "/Users/ozgeodabas/Documents/GitHub/GalleryProject/src/images/Guernica.jpg",
+            "/Users/ozgeodabas/Documents/GitHub/GalleryProject/src/images/monalisa.jpg",
+            "/Users/ozgeodabas/Documents/GitHub/GalleryProject/src/images/sonakşamyemeği.jpg",
+            "/Users/ozgeodabas/Documents/GitHub/GalleryProject/src/images/yıldızlıgece.jpg",
+            "/Users/ozgeodabas/Documents/GitHub/GalleryProject/src/images/çığlık.jpg",
+            "/Users/ozgeodabas/Documents/GitHub/GalleryProject/src/images/öpücük.jpg"
     };
-
 
     Service service = new Service();
 
@@ -76,14 +85,15 @@ public class HelloController {
             inputEmail.setMaxHeight(0);
             inputEmail.setMaxWidth(0);
             imageView.setVisible(true);
-            imageView.setFitWidth(350);
-            imageView.setFitHeight(250);
+            imageView.setFitWidth(550);
+            imageView.setFitHeight(450);
 
             loginButton.setVisible(false);
             loginButtonBox.setManaged(false);
             cartButton.setVisible(true);
             backButton.setVisible(true);
             nextButton.setVisible(true);
+            infoButton.setVisible(true);
             addCartButton.setVisible(true);
 
             if (label.getText().equals("LOGIN")) {
@@ -143,13 +153,15 @@ public class HelloController {
             buyButton.setVisible(false);
             backButton.setVisible(true);
             nextButton.setVisible(true);
+            infoButton.setVisible(true);
             addCartButton.setVisible(true);
             buttons.setManaged(true);
+            infoButton.setManaged(true);
             addCartButton.setManaged(true);
             imageView.setManaged(true);
             imageView.setVisible(true);
-            imageView.setFitWidth(350);
-            imageView.setFitHeight(250);
+            imageView.setFitWidth(550);
+            imageView.setFitHeight(450);
 
             tableView.setVisible(false);
             tableView.prefWidth(0);
@@ -166,18 +178,21 @@ public class HelloController {
             buyButton.setVisible(true);
             backButton.setVisible(false);
             nextButton.setVisible(false);
+            infoButton.setVisible(false);
             addCartButton.setVisible(false);
-            buttons.setManaged(false);
 
+            buttons.setManaged(false);
+            infoButton.setManaged(false);
             addCartButton.setManaged(false);
+
             imageView.setManaged(false);
             imageView.setVisible(false);
             imageView.setFitWidth(0);
             imageView.setFitHeight(0);
 
             tableView.setVisible(true);
-            tableView.setMaxSize(600,250);
-            tableView.setPrefHeight(250);
+            tableView.setMaxSize(700,450);
+            tableView.setPrefHeight(450);
 
             var cart = service.GetCart();
             ObservableList<Cart> observableCartList = FXCollections.observableArrayList(cart);
@@ -192,6 +207,15 @@ public class HelloController {
     }
 
     @FXML
+    public void infoButtonClick() {
+        info.setTitle("Information");
+        info.setHeaderText("Information");
+        info.setContentText("starry night");
+        info.show();
+
+    }
+
+    @FXML
     public void addCartButtonClick() {
         alert.setAlertType(Alert.AlertType.CONFIRMATION);
         alert.setContentText("Ürün başarıyla sepete eklendi.");
@@ -202,5 +226,6 @@ public class HelloController {
     public void onClickBuyButton() {
         alert.show();
     }
+
 
 }
