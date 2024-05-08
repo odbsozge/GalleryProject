@@ -1,13 +1,8 @@
 package org.example.magnificentgallery;
 
-import javafx.collections.ObservableArray;
 import org.example.magnificentgallery.Entity.Cart;
-import org.example.magnificentgallery.Entity.User;
+import org.example.magnificentgallery.Entity.Customer;
 
-import javax.imageio.ImageIO;
-import javax.swing.*;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -18,17 +13,16 @@ public class Service {
 
             Connection dbConnection = DriverManager.getConnection( "jdbc:oracle:thin:@193.255.85.26:1521/orcl", "STU2202095", "STU2202095");
             Statement statement = dbConnection.createStatement();
-            ResultSet resultSet = statement.executeQuery("select * from [User]");
+            ResultSet resultSet = statement.executeQuery("select * from Customer");
+
              while(resultSet.next())
             {
-                User user = new User(
+                Customer customer = new Customer(
                         resultSet.getInt("id"),
                         resultSet.getString("firstName"),
-
                         resultSet.getString("lastName"),
                         resultSet.getString("phoneNumber"),
                         resultSet.getDouble("loan"),
-
                         resultSet.getString("address"),
                         resultSet.getString("email")
                 );
@@ -41,26 +35,28 @@ public class Service {
         }
     }
 
-    public User GetUser(String Email) {
-        // Veritabanına bağlan
-        String url = "jdbc:oracle:thin:@//193.255.85.26:1521/xe";
-        String username = "STU2202095";
-        String password = "STU2202095";
+    public Customer GetUser(String email) {
 
         try{
-            String sql = "SELECT * FROM User where Email='ozge.odabas@bahcesehir.edu.tr'";
+            //Class.forName("com.mysql.jdbc.Driver");
 
-            if (true) {
-                User newUser = new User() {
-                    {
-                        setId(1); // ID değerini burada belirtin
-                        setFirstName("Ozge");
-                        setLastName("Odabas");
-                        setEmail("ozge.odabas@bahcesehir.edu.tr");
-                        // Diğer alanları da isteğinize göre burada belirtebilirsiniz
-                    }
-                };
-                return newUser;
+            Connection dbConnection = DriverManager.getConnection( "jdbc:oracle:thin:@193.255.85.26:1521/orcl", "STU2202095", "STU2202095");
+            Statement statement = dbConnection.createStatement();
+            ResultSet resultSet;
+            resultSet = statement.executeQuery("select * from CUSTOMER");
+
+            if (resultSet.next()) {
+//                Customer newCustomer = new Customer() {
+//                    {
+//                        setId(1); // ID değerini burada belirtin
+//                        setFirstName("Ozge");
+//                        setLastName("Odabas");
+//                        setEmail("ozge.odabas@bahcesehir.edu.tr");
+//                        // Diğer alanları da isteğinize göre burada belirtebilirsiniz
+//                    }
+//                };
+                Customer newCustomer = (Customer) resultSet.getObject(1, Customer.class);
+                return newCustomer;
             } else {
                 return null; // Sonuç kümesi boşsa null döndür
             }

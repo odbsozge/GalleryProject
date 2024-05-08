@@ -11,9 +11,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import org.example.magnificentgallery.Entity.Cart;
-import org.example.magnificentgallery.Entity.User;
+import org.example.magnificentgallery.Entity.Customer;
 
-import java.awt.*;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
@@ -76,9 +75,9 @@ public class HelloController {
 
     @FXML
     protected void onClickLoginButton() {
-        User user = service.GetUser(inputEmail.getText());
-        if (user != null) {
-            welcomeText.setText(STR."Hello \{user.getFirstName()} \{user.getLastName()}");
+        Customer customer = service.GetUser(inputEmail.getText());
+        if (customer != null) {
+            welcomeText.setText(STR."Hello \{customer.getFirstName()} \{customer.getLastName()}");
             welcomeText.setVisible(true);
 
             inputEmail.setVisible(false);

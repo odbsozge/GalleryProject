@@ -1,6 +1,8 @@
 package org.example.magnificentgallery.Entity;
 
-public class User {
+import java.security.Key;
+
+public class Customer {
     private int id;
     private String firstName;
     private String lastName;
@@ -10,10 +12,10 @@ public class User {
     private String email;
 
     // Constructors
-    public User() {
+    public Customer() {
     }
 
-    public User(int id, String firstName, String lastName, String phoneNumber, double loan, String address, String email) {
+    public Customer(int id, String firstName, String lastName, String phoneNumber, double loan, String address, String email) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -24,7 +26,7 @@ public class User {
     }
 
     // Getters and Setters
-    public int getId() {
+    public Number getId() {
         return id;
     }
 
@@ -56,7 +58,7 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-    public double getLoan() {
+    public Number getLoan() {
         return loan;
     }
 

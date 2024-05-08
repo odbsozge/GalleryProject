@@ -2,24 +2,24 @@ package org.example.magnificentgallery.Entity;
 
 public class Cart {
     private int id;
-    private int userId;
+    private int customerId;
     private int paintingId;
     private int paintingPriceId;
     private double price;
-    private String userFirstName;
-    private String userLastName;
+    private String costomerFirstName;
+    private String customerLastName;
     private String url;
 
     // Constructors
     public Cart() {}
 
-    public Cart(int i, int userId, int paintingId, int paintingPriceId, double price, String userFirstName, String userLastName, String url) {
-        this.userId = userId;
+    public Cart(int i, int customerId, int paintingId, int paintingPriceId, double price, String costomerFirstName, String customerLastName, String url) {
+        this.customerId = customerId;
         this.paintingId = paintingId;
         this.paintingPriceId = paintingPriceId;
         this.price = price;
-        this.userFirstName = userFirstName;
-        this.userLastName = userLastName;
+        this.costomerFirstName = costomerFirstName;
+        this.customerLastName = customerLastName;
         this.url = url;
     }
 
@@ -32,12 +32,12 @@ public class Cart {
         this.id = id;
     }
 
-    public int getUserId() {
-        return userId;
+    public int getCustomerId() {
+        return customerId;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 
     public int getPaintingId() {
@@ -64,20 +64,20 @@ public class Cart {
         this.price = price;
     }
 
-    public String getUserFirstName() {
-        return userFirstName;
+    public String getCostomerFirstName() {
+        return costomerFirstName;
     }
 
-    public void setUserFirstName(String userFirstName) {
-        this.userFirstName = userFirstName;
+    public void setCostomerFirstName(String costomerFirstName) {
+        this.costomerFirstName = costomerFirstName;
     }
 
-    public String getUserLastName() {
-        return userLastName;
+    public String getCustomerLastName() {
+        return customerLastName;
     }
 
-    public void setUserLastName(String userLastName) {
-        this.userLastName = userLastName;
+    public void setCustomerLastName(String customerLastName) {
+        this.customerLastName = customerLastName;
     }
 
     public String getUrl() {

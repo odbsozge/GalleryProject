@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="70e9c92d-7f24-4648-8004-3da85f9c1e1e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/images/Guernica.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/monalisa.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/sonakşamyemeği.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/yıldızlıgece.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/çığlık.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/öpücük.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/Entity/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/Entity/Cart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/Entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/Entity/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/magnificentgallery/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/magnificentgallery/hello-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/Service.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +64,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.HelloApplication.executor": "Run",
-    "Application.Main.executor": "Run",
+    "Application.Main.executor": "Debug",
     "Application.Unnamed.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
     "Repository.Attach.Annotations": "false",
@@ -155,19 +151,21 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/Entity/Cart.java</url>
+          <line>9</line>
+          <properties field="customerLastName" class="org.example.magnificentgallery.Entity.Cart" />
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/Service.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="4" />
+          <line>45</line>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/Service.java</url>
-          <line>43</line>
-          <properties class="org.example.magnificentgallery.Service" method="GetUser">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="10" />
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/com/oracle/database/jdbc/ojdbc10/19.22.0.0/ojdbc10-19.22.0.0.jar!/oracle/jdbc/driver/OracleStatement.class</url>
+          <line>841</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
