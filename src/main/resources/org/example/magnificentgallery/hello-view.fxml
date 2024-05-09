@@ -36,7 +36,7 @@
     </HBox>
 
       <ImageView fx:id="imageView" fitWidth="0" fitHeight="0" visible="false">
-        <Image fx:id="image" url="@../../../../../images/Screenshot.png"/>
+        <Image fx:id="image" url="@../../../../../images/Login.png"/>
       </ImageView>
 
       <HBox fx:id="buttons" spacing="75" style="-fx-padding: 30 0 0 0" alignment="CENTER">
@@ -49,16 +49,26 @@
 
     <Button fx:id="addCartButton" text="Add To Cart" onAction="#addCartButtonClick" visible="false" styleClass="button"/>
 
-    <TableView fx:id="tableView" visible="false" maxWidth="0" maxHeight="0">
+    <TableView fx:id="tableView" visible="false" maxWidth="0" maxHeight="0" >
         <columns>
-            <TableColumn text="id">
+            <TableColumn fx:id="NameColumn" text="Painting Name">
                 <cellValueFactory>
-                    <PropertyValueFactory property="PaintingId"/>
+                    <PropertyValueFactory property="name"/>
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn text="Price">
+            <TableColumn fx:id="PriceColumn" text="Price">
                 <cellValueFactory>
-                    <PropertyValueFactory property="Price"/>
+                    <PropertyValueFactory property="price"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="ArtistColumn" text="Artist">
+                <cellValueFactory>
+                    <PropertyValueFactory property="artist"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="YearColumn" text="Year">
+                <cellValueFactory>
+                    <PropertyValueFactory property="year"/>
                 </cellValueFactory>
             </TableColumn>
         </columns>

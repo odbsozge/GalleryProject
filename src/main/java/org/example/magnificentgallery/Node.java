@@ -1,48 +1,51 @@
 package org.example.magnificentgallery;
 
+import org.example.magnificentgallery.Entity.Painting;
+
 import java.util.ArrayList;
 
 public class Node {
-    private int paintingId;
-    private int level;
-    private ArrayList<Node> childList;
+    private Painting painting;
+    private ArrayList<Node> children;
 
-    public  Node(int paintingId){
-        this.paintingId = paintingId;
-        this.level = 0;
-        this.childList = new ArrayList<Node>();
+    public Node(Painting painting, ArrayList<Node> children) {
+        this.painting = painting;
+        this.children = children;
     }
 
-    public int getPaintingId() {
-        return paintingId;
+    // Getters and setters for painting and children
+
+    public Painting getPainting() {
+        return painting;
     }
 
-    public void setPaintingId(int paintingId) {
-        this.paintingId = paintingId;
+    public Node getPaintingById(int id) {
+        var painting = getAllChilds().stream().filter(item->item.getPainting().getId() == id).findFirst().orElse(null);
+        return painting;
     }
 
-    public int getLevel(){
-        return level;
+    public void setPainting(Painting painting) {
+        this.painting = painting;
     }
 
-    public ArrayList<Node> getChildList() {
-        return childList;
+    public ArrayList<Node> getChildren() {
+        return children;
     }
 
-    public void setChildList(ArrayList<Node> childList) {
-        this.childList = childList;
+    public void setChildren(ArrayList<Node> children) {
+        this.children = children;
     }
 
-    public void addChild(Node child) {
-        this.childList.add(child);
-    }
+    public void addChildren(int id, Node child) {
+        var painting = getAllChilds().stream().filter(item->item.getPainting().getId() == id).findFirst().orElse(null);
 
-    public void deleteChild(Node child) {
-        this.childList.remove(child);
-    }
+        if (painting != null) {
+            ArrayList<Node> currentChildren = painting.getChildren();
 
-    public void deleteChildByPaintingId(int paintingId) {
-        this.childList.removeIf(child -> child.getPaintingId() == paintingId);
+            currentChildren.add(child);
+
+            painting.setChildren(currentChildren);
+        }
     }
 
     public ArrayList<Node> getAllChilds() {
@@ -50,9 +53,8 @@ public class Node {
 
         nodeList.add(this);
 
-        if (this.getChildList()!= null && !this.getChildList().isEmpty()) {
-            for (Node child : this.getChildList()) {
-                // Çocuk düğümü nodeList'e ekleyin
+        if (this.getChildren()!= null && !this.getChildren().isEmpty()) {
+            for (Node child : this.getChildren()) {
                 nodeList.addAll(child.getAllChilds());
             }
         }

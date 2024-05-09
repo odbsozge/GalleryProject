@@ -2,115 +2,64 @@ package org.example.magnificentgallery;
 
 import org.example.magnificentgallery.Entity.Cart;
 import org.example.magnificentgallery.Entity.Customer;
+import org.example.magnificentgallery.Entity.Painting;
 
 import java.sql.*;
-import java.util.ArrayList;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Service {
-    public void displayImagesFromDatabase() {
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
+    public String[] getPaintingUrlList() {
+        var tree = getPaintingTree();
+        var paintings= tree.getAllChilds();
+        String[] urlList = paintings.stream()
+                .map(item -> item.getPainting().getUrl())
+                .toArray(String[]::new);
+        return urlList;
+    }
 
-            Connection dbConnection = DriverManager.getConnection( "jdbc:oracle:thin:@193.255.85.26:1521/orcl", "STU2202095", "STU2202095");
-            Statement statement = dbConnection.createStatement();
-            ResultSet resultSet = statement.executeQuery("select * from Customer");
+    public Node getPaintingTree() {
+        var paintings = new Painting().getPaintings();
+        Node tree = null;
 
-             while(resultSet.next())
-            {
-                Customer customer = new Customer(
-                        resultSet.getInt("id"),
-                        resultSet.getString("firstName"),
-                        resultSet.getString("lastName"),
-                        resultSet.getString("phoneNumber"),
-                        resultSet.getDouble("loan"),
-                        resultSet.getString("address"),
-                        resultSet.getString("email")
-                );
+        if (!paintings.isEmpty()) {
+            // root node
+            tree = new Node(paintings.get(0), new ArrayList<>());
+
+
+            paintings.sort(Comparator.comparingInt(Painting::getId));
+            //  children nodes
+            for (Painting painting : paintings) {
+                var node = tree.getPaintingById(painting.getParentId());
+                if (node != null)
+                {
+                    node.addChildren(painting.getParentId(),new Node(painting, new ArrayList<>()));
+                }
             }
-            dbConnection.close();
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         }
+
+        return tree;
     }
 
     public Customer GetUser(String email) {
+        var customers = new Customer().getCustomers();
+        var customer = customers.stream().filter(x -> x.getEmail().equals(email)).findFirst();
 
-        try{
-            //Class.forName("com.mysql.jdbc.Driver");
-
-            Connection dbConnection = DriverManager.getConnection( "jdbc:oracle:thin:@193.255.85.26:1521/orcl", "STU2202095", "STU2202095");
-            Statement statement = dbConnection.createStatement();
-            ResultSet resultSet;
-            resultSet = statement.executeQuery("select * from CUSTOMER");
-
-            if (resultSet.next()) {
-//                Customer newCustomer = new Customer() {
-//                    {
-//                        setId(1); // ID değerini burada belirtin
-//                        setFirstName("Ozge");
-//                        setLastName("Odabas");
-//                        setEmail("ozge.odabas@bahcesehir.edu.tr");
-//                        // Diğer alanları da isteğinize göre burada belirtebilirsiniz
-//                    }
-//                };
-                Customer newCustomer = (Customer) resultSet.getObject(1, Customer.class);
-                return newCustomer;
-            } else {
-                return null; // Sonuç kümesi boşsa null döndür
-            }
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-        return null;
+        return customer.orElse(null);
     }
 
-    public ArrayList<Cart> GetCart() {
-        // Veritabanına bağlan
-        String url = "jdbc:oracle:thin:@//193.255.85.26:1521/xe";
-        String username = "STU2202095";
-        String password = "STU2202095";
+    public double GetTotalPrice(LinkedList<Painting> paintings) {
+        Map<Integer, List<Painting>> totalPriceByPaintingId = paintings.stream()
+                .collect(Collectors.groupingBy(Painting::getId));
 
-        try{
-            String sql = "SELECT * FROM Cart where UserId= userId";
-            ArrayList<Cart> cart = new ArrayList<Cart>();
-            cart.add(new Cart(1,1,1,1,100,"ozge","odabas","url"));
-
-            cart.add(new Cart(2,2,2,2,140,"ozge","odabas","url2"));
-            return cart;
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        double totalAmount = 0.0;
+        for (List<Painting> group : totalPriceByPaintingId.values()) {
+            for (Painting painting : group) {
+                totalAmount += painting.getPrice();
+            }
         }
-        return new ArrayList<Cart>();
+
+        return totalAmount;
     }
 
-    public double GetTotalPrice(int userId) {
-        // Veritabanına bağlan
-        String url = "jdbc:oracle:thin:@//193.255.85.26:1521/xe";
-        String username = "STU2202095";
-        String password = "STU2202095";
-        double totalAmount = 0;
-
-        try{
-            String sql = "SELECT * FROM Cart where UserId= userId";
-            ArrayList<Cart> cart = new ArrayList<Cart>();
-            cart.add(new Cart(1,1,1,1,100,"ozge","odabas","url"));
-
-            cart.add(new Cart(2,2,2,2,140,"ozge","odabas","url2"));
-
-            if (cart != null || !cart.isEmpty()) {
-                totalAmount = cart.stream().mapToDouble(x -> x.getPrice()).sum();
-                return totalAmount;
-            }
-            else {
-                return 0;
-            }
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-        return 0;
-    }
 }

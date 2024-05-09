@@ -7,6 +7,7 @@ module org.example.magnificentgallery {
     requires com.almasb.fxgl.all;
     requires java.desktop;
     requires java.sql;
+    requires com.oracle.database.jdbc;
 
     opens org.example.magnificentgallery to javafx.fxml;
     exports org.example.magnificentgallery;

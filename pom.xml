@@ -81,6 +81,12 @@
       <artifactId>spring-jdbc</artifactId>
       <version>6.1.6</version>
     </dependency>
+    <dependency>
+      <groupId>com.oracle.database.jdbc</groupId>
+      <artifactId>ojdbc11</artifactId>
+      <version>23.4.0.24.05</version>
+    </dependency>
+
   </dependencies>
 
   <build>
