@@ -24,11 +24,11 @@ public class Customer {
 
     public ArrayList<Customer> getCustomers() {
         ArrayList<Customer> customers = new ArrayList<Customer>();
-        customers.add(new Customer(1,"Özge", "Odabaş",0,"ozge.odabas@bahcesehir.edu.tr"));
-        customers.add(new Customer(2,"Selin", "Yerli",0,"selin.yerli@bahcesehir.edu.tr"));
-        customers.add(new Customer(3,"Alper", "Avcı",0,"alper.avci@bahcesehir.edu.tr"));
+        customers.add(new Customer(1, "Özge", "Odabaş", 0, "ozge.odabas@bahcesehir.edu.tr"));
+        customers.add(new Customer(2, "Selin", "Yerli", 0, "selin.yerli@bahcesehir.edu.tr"));
+        customers.add(new Customer(3, "Alper", "Avcı", 0, "alper.avci@bahcesehir.edu.tr"));
 
-        return  customers;
+        return customers;
     }
 
     // Getters and Setters

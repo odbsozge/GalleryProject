@@ -8,28 +8,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="70e9c92d-7f24-4648-8004-3da85f9c1e1e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/images/Login.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/monalisaface.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/monalisahands.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/sonakşamyemeğiisa.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/venüsündoğuşu.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/yıldızlıgeceyıldız.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/LinkedListNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/Screenshot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/Screenshot2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/Screenshot3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/Screenshot4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/Screenshot5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/Entity/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/Entity/Cart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/Entity/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/Entity/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/Entity/Painting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/Entity/Painting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/Entity/PaintingPrice.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/Entity/Cart.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/TreeNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/magnificentgallery/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/magnificentgallery/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,8 +24,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaFXApplication" />
-        <option value="Class" />
         <option value="spring-beans.schema" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -150,6 +134,7 @@
       <workItem from="1714685058619" duration="4633000" />
       <workItem from="1714728485876" duration="21582000" />
       <workItem from="1715070668393" duration="8651000" />
+      <workItem from="1715360932453" duration="3394000" />
     </task>
     <servers />
   </component>
@@ -172,18 +157,18 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/HelloController.java</url>
-          <line>72</line>
-          <option name="timeStamp" value="23" />
+          <line>229</line>
+          <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/HelloController.java</url>
-          <line>228</line>
-          <option name="timeStamp" value="26" />
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/LinkedListNode.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/Service.java</url>
-          <line>21</line>
-          <option name="timeStamp" value="28" />
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/magnificentgallery/LinkedListNode.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="32" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

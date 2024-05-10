@@ -15,8 +15,6 @@ import org.example.magnificentgallery.Entity.Painting;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.LinkedList;
 
 public class HelloController {
     @FXML
@@ -66,7 +64,8 @@ public class HelloController {
     private int currentIndex = 1;
     Service service = new Service();
     Customer loginCustomer;
-    LinkedList<Painting> customerCart = new LinkedList<>();
+    LinkedListNode customerCart = new LinkedListNode();
+
 
     @FXML
     protected void onClickLoginButton() {
@@ -143,6 +142,38 @@ public class HelloController {
     }
 
     @FXML
+    public void infoButtonClick() {
+        info.setTitle("Information");
+        info.setHeaderText("Information");
+        var paintingUrlList = service.getPaintingUrlList();
+        var tree = service.getPaintingTree();
+        var paintings = tree.getAllChilds();
+        var painting = paintings.stream().filter(item -> item.getPainting().getUrl().equals(paintingUrlList[currentIndex])).findFirst().orElse(null);
+        if (painting != null) {
+            info.setContentText(STR." Name: \{painting.getPainting().getName()}\n Artist: \{painting.getPainting().getArtist()}\n Year: \{painting.getPainting().getYear()}\n Price: \{painting.getPainting().getPrice()}");
+        }
+        info.show();
+
+    }
+
+    @FXML
+    public void addCartButtonClick() {
+        var paintingUrlList = service.getPaintingUrlList();
+        var tree = service.getPaintingTree();
+        var paintings = tree.getAllChilds();
+        var painting = paintings.stream().filter(item -> item.getPainting().getUrl().equals(paintingUrlList[currentIndex])).findFirst().orElse(null);
+        if (painting != null) {
+            customerCart.addPainting(painting.getPainting());
+        }
+
+        alert.setAlertType(Alert.AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setHeaderText("Information");
+        alert.setContentText("Ürün başarıyla sepete eklendi.");
+        alert.show();
+    }
+
+    @FXML
     protected void onClickCartButton() {
 
         //sepeti kapatırken
@@ -194,9 +225,10 @@ public class HelloController {
             tableView.setEditable(true);
             tableView.setPrefHeight(450);
 
-            ObservableList<Painting> observableCustomerCart = FXCollections.observableArrayList(customerCart);
+            ObservableList<Painting> observableCustomerCart = FXCollections.observableArrayList(customerCart.getAllNodes());
             tableView.setItems(observableCustomerCart);
             tableView.refresh();
+
             tableView.resizeColumn(NameColumn, 100);
             tableView.resizeColumn(PriceColumn, 50);
             tableView.resizeColumn(ArtistColumn, 150);
@@ -205,40 +237,9 @@ public class HelloController {
             cartInfo.setVisible(true);
             cartInfo.prefWidth(400);
             cartInfo.prefHeight(50);
-            amount.setText(STR."Amount : \{service.GetTotalPrice(customerCart)}");
+
+            amount.setText(STR."Amount : \{service.GetTotalPrice(customerCart.getAllNodes())}");
         }
-    }
-
-    @FXML
-    public void infoButtonClick() {
-        info.setTitle("Information");
-        info.setHeaderText("Information");
-        var paintingUrlList = service.getPaintingUrlList();
-        var tree = service.getPaintingTree();
-        var paintings = tree.getAllChilds();
-        var painting = paintings.stream().filter(item -> item.getPainting().getUrl().equals(paintingUrlList[currentIndex])).findFirst().orElse(null);
-        if ( painting != null) {
-            info.setContentText(STR." Name: \{painting.getPainting().getName()}\n Artist: \{painting.getPainting().getArtist()}\n Year: \{painting.getPainting().getYear()}\n Price: \{painting.getPainting().getPrice()}");
-        }
-        info.show();
-
-    }
-
-    @FXML
-    public void addCartButtonClick() {
-        var paintingUrlList = service.getPaintingUrlList();
-        var tree = service.getPaintingTree();
-        var paintings = tree.getAllChilds();
-        var painting = paintings.stream().filter(item -> item.getPainting().getUrl().equals(paintingUrlList[currentIndex])).findFirst().orElse(null);
-        if (painting != null) {
-            customerCart.add(painting.getPainting());
-        }
-
-        alert.setAlertType(Alert.AlertType.INFORMATION);
-        alert.setTitle("Information");
-        alert.setHeaderText("Information");
-        alert.setContentText("Ürün başarıyla sepete eklendi.");
-        alert.show();
     }
 
     @FXML
@@ -248,6 +249,14 @@ public class HelloController {
         alert.setHeaderText("Information");
         alert.setContentText("Payment Successful!");
         alert.show();
+
+        customerCart.deleteNodesFromLinkedList();
+
+        ObservableList<Painting> observableCustomerCart = FXCollections.observableArrayList(customerCart.getAllNodes());
+        tableView.setItems(observableCustomerCart);
+        tableView.refresh();
+
+        amount.setText(STR."Amount : \{service.GetTotalPrice(customerCart.getAllNodes())}");
     }
 
 

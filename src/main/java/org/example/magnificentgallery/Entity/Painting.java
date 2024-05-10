@@ -14,7 +14,8 @@ public class Painting {
     private int parentId;
 
     // Constructors
-    public Painting() {}
+    public Painting() {
+    }
 
     public Painting(int id, String name, String artist, String year, String url, double price, int parentId) {
         this.id = id;
@@ -38,9 +39,9 @@ public class Painting {
         paintings.add(new Painting(6, "Guernica", "Pablo Picasso", "1937", "/Users/ozgeodabas/Documents/GitHub/GalleryProject/src/images/Guernica.jpg", 454, 0));
         paintings.add(new Painting(7, "Venüsün Doğuşu", "Sandro Botticelli", "1484–1486", "/Users/ozgeodabas/Documents/GitHub/GalleryProject/src/images/venüsündoğuşu.jpg", 5454, 0));
         paintings.add(new Painting(8, "Mona Lisa'nın Yüzü", "Leonardo Da Vinci", "1503", "/Users/ozgeodabas/Documents/GitHub/GalleryProject/src/images/monalisaface.png", 3567, 1));
-        paintings.add(new Painting(9, "Mona Lisa'nın Elleri", "Leonardo Da Vinci", "1503","/Users/ozgeodabas/Documents/GitHub/GalleryProject/src/images/monalisahands.png", 343, 1));
+        paintings.add(new Painting(9, "Mona Lisa'nın Elleri", "Leonardo Da Vinci", "1503", "/Users/ozgeodabas/Documents/GitHub/GalleryProject/src/images/monalisahands.png", 343, 1));
         paintings.add(new Painting(10, "Son Akşam Yemeği İsa", "Leonardo Da Vinci", "1495-1498", "/Users/ozgeodabas/Documents/GitHub/GalleryProject/src/images/sonakşamyemeğiisa.png", 454, 4));
-        paintings.add(new Painting(11, "Yıldızlı Gece'den Bir Parça", "Vincent Van Gogh", "1889",  "/Users/ozgeodabas/Documents/GitHub/GalleryProject/src/images/yıldızlıgeceyıldız.png", 5454, 2));
+        paintings.add(new Painting(11, "Yıldızlı Gece'den Bir Parça", "Vincent Van Gogh", "1889", "/Users/ozgeodabas/Documents/GitHub/GalleryProject/src/images/yıldızlıgeceyıldız.png", 5454, 2));
 
         return paintings;
     }
