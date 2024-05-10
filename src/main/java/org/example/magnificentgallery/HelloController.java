@@ -69,7 +69,7 @@ public class HelloController {
 
     @FXML
     protected void onClickLoginButton() {
-        Customer customer = service.GetUser(inputEmail.getText());
+        Customer customer = service.GetCustomer(inputEmail.getText());
         if (customer != null) {
             loginCustomer = new Customer((int) customer.getId(), customer.getFirstName(), customer.getLastName(), (double) customer.getLoan(), customer.getEmail());
             welcomeText.setText(STR."Hello \{loginCustomer.getFirstName()} \{loginCustomer.getLastName()}");

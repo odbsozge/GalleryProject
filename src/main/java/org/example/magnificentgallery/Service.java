@@ -37,7 +37,7 @@ public class Service {
         return tree;
     }
 
-    public Customer GetUser(String email) {
+    public Customer GetCustomer(String email) {
         var customers = new Customer().getCustomers();
         var customer = customers.stream().filter(x -> x.getEmail().equals(email)).findFirst();
 
